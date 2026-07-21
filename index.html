@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Blood Bank Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-tint"></i>
+                <span>BloodBank</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="donate.html">Donate Blood</a></li>
+                <li><a href="request.html">Request Blood</a></li>
+                <li><a href="search.html">Search Blood</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Save Lives Through <span class="highlight">Blood Donation</span></h1>
+                <p>Connect blood donors with patients in need. Every drop counts. Join our community of lifesavers today.</p>
+                <div class="hero-buttons">
+                    <a href="donate.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-heart"></i> Become a Donor
+                    </a>
+                    <a href="request.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-hand-holding-medical"></i> Request Blood
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="blood_donation_hero.jpg" alt="Blood Donation" referrerPolicy="no-referrer">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3 class="counter" data-target="5000">0</h3>
+                    <p>Registered Donors</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3 class="counter" data-target="12000">0</h3>
+                    <p>Blood Units Collected</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-hospital"></i>
+                    <h3 class="counter" data-target="8500">0</h3>
+                    <p>Lives Saved</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-award"></i>
+                    <h3 class="counter" data-target="50">0</h3>
+                    <p>Partner Hospitals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Types Section -->
+    <section class="blood-types">
+        <div class="container">
+            <div class="section-header">
+                <h2>Blood Types We Accept</h2>
+                <p>All blood types are valuable and needed for different patients</p>
+            </div>
+            <div class="blood-grid">
+                <div class="blood-card">
+                    <div class="blood-icon">A+</div>
+                    <p>Can donate to: A+, AB+</p>
+                    <p>Can receive from: A+, A-, O+, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">A-</div>
+                    <p>Can donate to: A+, A-, AB+, AB-</p>
+                    <p>Can receive from: A-, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">B+</div>
+                    <p>Can donate to: B+, AB+</p>
+                    <p>Can receive from: B+, B-, O+, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">B-</div>
+                    <p>Can donate to: B+, B-, AB+, AB-</p>
+                    <p>Can receive from: B-, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">AB+</div>
+                    <p>Can donate to: AB+ only</p>
+                    <p>Can receive from: All types</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">AB-</div>
+                    <p>Can donate to: AB+, AB-</p>
+                    <p>Can receive from: A-, B-, AB-, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">O+</div>
+                    <p>Can donate to: A+, B+, AB+, O+</p>
+                    <p>Can receive from: O+, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">O-</div>
+                    <p>Can donate to: All types</p>
+                    <p>Can receive from: O- only</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Our Platform</h2>
+                <p>We make blood donation and request process simple, safe, and efficient</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Easy Search</h3>
+                    <p>Find blood donors or available blood units quickly with our advanced search system.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safe & Secure</h3>
+                    <p>Your data is protected with industry-standard security measures and encryption.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24/7 Available</h3>
+                    <p>Our platform is available round the clock for emergency blood requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Access our platform from any device - desktop, tablet, or smartphone.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Instant Notifications</h3>
+                    <p>Get notified immediately when blood is needed or when a donor is available.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Track History</h3>
+                    <p>Keep track of your donations and requests with detailed history reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Donation Process</h2>
+                <p>Simple steps to become a blood donor</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <i class="fas fa-user-plus"></i>
+                        <h3>Registration</h3>
+                        <p>Create your account and complete your profile with health information.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Schedule</h3>
+                        <p>Book an appointment at your nearest blood donation center.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Screening</h3>
+                        <p>Quick health check to ensure you're eligible to donate blood.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <i class="fas fa-tint"></i>
+                        <h3>Donation</h3>
+                        <p>Donate blood safely. The process takes only 10-15 minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Save Lives?</h2>
+                <p>Join thousands of donors who are making a difference every day. Your single donation can save up to three lives.</p>
+                <a href="register.html" class="btn btn-white btn-large">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand">
+                        <i class="fas fa-tint"></i>
+                        <span>BloodBank</span>
+                    </div>
+                    <p>Connecting blood donors with patients in need. Together, we can save lives and build a healthier community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate Blood</a></li>
+                        <li><a href="request.html">Request Blood</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="search.html">Find Donors</a></li>
+                        <li><a href="blood-banks.html">Blood Banks</a></li>
+                        <li><a href="hospitals.html">Hospitals</a></li>
+                        <li><a href="events.html">Donation Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@bloodbank.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Blood Bank Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
