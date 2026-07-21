@@ -1,0 +1,51 @@
+[
+  {
+    "email": "john@example.com",
+    "password": "DonorSecurePass!99",
+    "firstName": "John",
+    "lastName": "Doe",
+    "name": "John Doe",
+    "bloodGroup": "A+",
+    "phone": "+1 234 567 8902",
+    "dob": "1998-05-15",
+    "gender": "male",
+    "weight": "75",
+    "city": "Downtown",
+    "state": "NY",
+    "address": "123 Main St, Downtown",
+    "eligibilityScore": null
+  },
+  {
+    "email": "sarah@example.com",
+    "password": "DonorSecurePass!99",
+    "firstName": "Sarah",
+    "lastName": "Connor",
+    "name": "Sarah Connor",
+    "bloodGroup": "O-",
+    "phone": "+1 987 654 3210",
+    "dob": "1992-08-24",
+    "gender": "female",
+    "weight": "62",
+    "city": "Westside",
+    "state": "CA",
+    "address": "456 Elm St, Pasadena",
+    "eligibilityScore": null
+  },
+  {
+    "email": "admin@bloodsync.org",
+    "password": "AdminSecurePass!99",
+    "firstName": "System",
+    "lastName": "Admin",
+    "name": "System Admin",
+    "bloodGroup": "AB+",
+    "phone": "+1 800 555 0199",
+    "dob": "1985-10-10",
+    "gender": "male",
+    "weight": "82",
+    "city": "City Center",
+    "state": "NY",
+    "address": "456 Administrative Plaza, Suite 100",
+    "eligibilityScore": null,
+    "role": "admin"
+  }
+]
