@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Blood Bank Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-tint"></i>
+                <span>BloodBank</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="donate.html">Donate Blood</a></li>
+                <li><a href="request.html">Request Blood</a></li>
+                <li><a href="search.html">Search Blood</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="dashboard.html" class="btn btn-outline active"><i class="fas fa-user"></i> My Account</a>
+                <a href="index.html" class="btn btn-primary">Logout</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+        <!-- Colorful Animated Background Canvas -->
+        <div class="dashboard-canvas-bg">
+            <canvas id="dashboard-bg-canvas"></canvas>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div style="text-align: center; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150" alt="Profile" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px; object-fit: cover; border: 3px solid var(--primary-color);">
+                        <h4>John Doe</h4>
+                        <p style="font-size: 13px; color: var(--text-light);">Blood Donor</p>
+                    </div>
+                    <nav class="sidebar-menu">
+                        <a href="#" class="active" data-section="overview"><i class="fas fa-home"></i> Overview</a>
+                        <a href="#" data-section="appointments"><i class="fas fa-calendar-check"></i> Scheduled Appointments</a>
+                        <a href="#" data-section="analytics"><i class="fas fa-chart-pie"></i> Demand & Impact Analytics</a>
+                        <a href="#" data-section="blood-finder"><i class="fas fa-search-location"></i> Blood Bank Finder</a>
+                        <a href="#" data-section="matcher"><i class="fas fa-exchange-alt"></i> Compatibility Matcher</a>
+                        <a href="#" data-section="eligibility"><i class="fas fa-clipboard-check"></i> Eligibility Quiz</a>
+                        <a href="#" data-section="emergency-planner"><i class="fas fa-shield-alt"></i> Disaster Supply Coordinator</a>
+                        <a href="#" data-section="urgent"><i class="fas fa-bullhorn"></i> Live Urgent Requests</a>
+                        <a href="#" data-section="safety"><i class="fas fa-check-double"></i> Safety Prep Tracker</a>
+                        <a href="#" data-section="certificate"><i class="fas fa-certificate"></i> Certificates & Badges</a>
+                        <a href="#" data-section="donations"><i class="fas fa-heart"></i> My Donations</a>
+                        <a href="#" data-section="requests"><i class="fas fa-hand-holding-medical"></i> Blood Requests</a>
+                        <a href="#" data-section="profile"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#" data-section="history"><i class="fas fa-history"></i> History</a>
+                        <a href="#" data-section="settings"><i class="fas fa-cog"></i> Settings</a>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="dashboard-content">
+                    <div class="dashboard-header">
+                        <h2>Dashboard Overview</h2>
+                        <p style="color: var(--text-light);">Welcome back! Here's what's happening with your account.</p>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="dashboard-cards">
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-icon blue">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="dashboard-card-info">
+                                <h4>5</h4>
+                                <p>Total Donations</p>
+                            </div>
+                        </div>
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-icon red">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="dashboard-card-info">
+                                <h4>45</h4>
+                                <p>Days Since Last</p>
+                            </div>
+                        </div>
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-icon green">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="dashboard-card-info">
+                                <h4>15</h4>
+                                <p>Lives Saved</p>
+                            </div>
+                        </div>
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-icon orange">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="dashboard-card-info">
+                                <h4>Gold</h4>
+                                <p>Donor Status</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="margin-bottom: 20px;">Recent Donations</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Location</th>
+                                        <th>Blood Type</th>
+                                        <th>Units</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Jan 15, 2026</td>
+                                        <td>City Hospital</td>
+                                        <td>A+</td>
+                                        <td>1</td>
+                                        <td><span class="status-badge approved">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Oct 20, 2025</td>
+                                        <td>Life Care Center</td>
+                                        <td>A+</td>
+                                        <td>1</td>
+                                        <td><span class="status-badge approved">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jul 12, 2025</td>
+                                        <td>Red Cross Center</td>
+                                        <td>A+</td>
+                                        <td>1</td>
+                                        <td><span class="status-badge approved">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apr 05, 2025</td>
+                                        <td>City Hospital</td>
+                                        <td>A+</td>
+                                        <td>1</td>
+                                        <td><span class="status-badge approved">Completed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Appointments -->
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Upcoming Appointments</h3>
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>You are eligible to donate again in 45 days. Would you like to schedule your next donation?</span>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <a href="donate.html" class="btn btn-primary">
+                                <i class="fas fa-calendar-plus"></i> Schedule Donation
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand">
+                        <i class="fas fa-tint"></i>
+                        <span>BloodBank</span>
+                    </div>
+                    <p>Connecting blood donors with patients in need. Together, we can save lives and build a healthier community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate Blood</a></li>
+                        <li><a href="request.html">Request Blood</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="search.html">Find Donors</a></li>
+                        <li><a href="blood-banks.html">Blood Banks</a></li>
+                        <li><a href="hospitals.html">Hospitals</a></li>
+                        <li><a href="events.html">Donation Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@bloodbank.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Blood Bank Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="compatibility-engine.js"></script>
+    <script src="gamified-eligibility.js"></script>
+    <script src="smart-emergency-planner.js"></script>
+</body>
+</html>
