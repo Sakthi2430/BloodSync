@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Blood - Blood Bank Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-tint"></i>
+                <span>BloodBank</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="donate.html" class="active">Donate Blood</a></li>
+                <li><a href="request.html">Request Blood</a></li>
+                <li><a href="search.html">Search Blood</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Donate Blood</h1>
+            <p>Your donation can save up to three lives. Schedule your donation today.</p>
+        </div>
+    </section>
+
+    <!-- Donation Form -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container" style="max-width: 800px;">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Please ensure you meet the eligibility criteria before scheduling a donation.</span>
+                </div>
+                <form id="donationForm" action="/donate" method="POST">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-color);">Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bloodGroup">Blood Group</label>
+                            <select id="bloodGroup" name="bloodGroup" required>
+                                <option value="">Select Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight" name="weight" placeholder="Minimum 45 kg" min="45" required>
+                        </div>
+                    </div>
+
+                    <h3 style="margin: 30px 0 20px; color: var(--primary-color);">Donation Details</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="donationCenter">Donation Center</label>
+                            <select id="donationCenter" name="donationCenter" required>
+                                <option value="">Select Donation Center</option>
+                                <option value="center1">City Hospital Blood Bank</option>
+                                <option value="center2">Life Care Center</option>
+                                <option value="center3">Metro Health Services</option>
+                                <option value="center4">Red Cross Blood Bank</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="donationDate">Preferred Date</label>
+                            <input type="date" id="donationDate" name="donationDate" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="donationTime">Preferred Time</label>
+                            <select id="donationTime" name="donationTime" required>
+                                <option value="">Select Time Slot</option>
+                                <option value="09:00">09:00 AM - 10:00 AM</option>
+                                <option value="10:00">10:00 AM - 11:00 AM</option>
+                                <option value="11:00">11:00 AM - 12:00 PM</option>
+                                <option value="14:00">02:00 PM - 03:00 PM</option>
+                                <option value="15:00">03:00 PM - 04:00 PM</option>
+                                <option value="16:00">04:00 PM - 05:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="donationType">Donation Type</label>
+                            <select id="donationType" name="donationType" required>
+                                <option value="whole">Whole Blood</option>
+                                <option value="platelets">Platelets</option>
+                                <option value="plasma">Plasma</option>
+                                <option value="double">Double Red Cells</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h3 style="margin: 30px 0 20px; color: var(--primary-color);">Health Information</h3>
+                    <div class="form-group">
+                        <label>Have you donated blood in the last 3 months?</label>
+                        <div style="display: flex; gap: 20px; margin-top: 8px;">
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400;">
+                                <input type="radio" name="recentDonation" value="yes" style="width: auto;"> Yes
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400;">
+                                <input type="radio" name="recentDonation" value="no" checked style="width: auto;"> No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Do you have any of the following conditions?</label>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 8px;">
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400;">
+                                <input type="checkbox" name="conditions" value="diabetes" style="width: auto;"> Diabetes
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400;">
+                                <input type="checkbox" name="conditions" value="hypertension" style="width: auto;"> Hypertension
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400;">
+                                <input type="checkbox" name="conditions" value="heart" style="width: auto;"> Heart Disease
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400;">
+                                <input type="checkbox" name="conditions" value="none" checked style="width: auto;"> None
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="additionalInfo">Additional Information (Optional)</label>
+                        <textarea id="additionalInfo" name="additionalInfo" placeholder="Any other information you'd like to share..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label style="display: flex; align-items: flex-start; gap: 10px;">
+                            <input type="checkbox" name="consent" required style="width: auto; margin-top: 5px;">
+                            <span style="font-weight: 400; font-size: 14px;">I confirm that the information provided is accurate and I meet the eligibility criteria for blood donation. I understand that my blood will be tested for infectious diseases.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">
+                        <i class="fas fa-heart"></i> Schedule Donation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Info -->
+    <section class="features" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Eligibility Criteria</h2>
+                <p>Make sure you meet these requirements before donating</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background-color: rgba(46, 204, 113, 0.1); color: #2ecc71;">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Age</h3>
+                    <p>Between 18 and 65 years old</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background-color: rgba(52, 152, 219, 0.1); color: #3498db;">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3>Weight</h3>
+                    <p>Minimum 45 kg (99 lbs)</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background-color: rgba(231, 76, 60, 0.1); color: #e74c3c;">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Health</h3>
+                    <p>Good health condition</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background-color: rgba(243, 156, 18, 0.1); color: #f39c12;">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Interval</h3>
+                    <p>3 months since last donation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand">
+                        <i class="fas fa-tint"></i>
+                        <span>BloodBank</span>
+                    </div>
+                    <p>Connecting blood donors with patients in need. Together, we can save lives and build a healthier community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate Blood</a></li>
+                        <li><a href="request.html">Request Blood</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="search.html">Find Donors</a></li>
+                        <li><a href="blood-banks.html">Blood Banks</a></li>
+                        <li><a href="hospitals.html">Hospitals</a></li>
+                        <li><a href="events.html">Donation Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@bloodbank.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Blood Bank Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
