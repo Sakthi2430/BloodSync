@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Blood Bank Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-tint"></i>
+                <span>BloodBank</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="donate.html">Donate Blood</a></li>
+                <li><a href="request.html">Request Blood</a></li>
+                <li><a href="search.html">Search Blood</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with us for any queries or support</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="form-section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
+                <!-- Contact Form -->
+                <div class="form-container" style="margin: 0;">
+                    <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+                        <h2>Send us a Message</h2>
+                        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                    </div>
+                    <form id="contactForm" action="/contact" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select Subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="donation">Blood Donation</option>
+                                    <option value="request">Blood Request</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="complaint">Complaint</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+                        <h2>Contact Information</h2>
+                        <p>You can also reach us using the following contact details.</p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 25px;">
+                        <div class="feature-card" style="text-align: left; display: flex; align-items: flex-start; gap: 20px;">
+                            <div class="feature-icon" style="flex-shrink: 0;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Address</h3>
+                                <p style="color: var(--text-light);">123 Main Street, Downtown<br>City, State 12345<br>Country</p>
+                            </div>
+                        </div>
+                        <div class="feature-card" style="text-align: left; display: flex; align-items: flex-start; gap: 20px;">
+                            <div class="feature-icon" style="flex-shrink: 0;">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p style="color: var(--text-light);">
+                                    General: +1 234 567 8900<br>
+                                    Emergency: +1 234 567 8901<br>
+                                    Toll-free: 1800-123-4567
+                                </p>
+                            </div>
+                        </div>
+                        <div class="feature-card" style="text-align: left; display: flex; align-items: flex-start; gap: 20px;">
+                            <div class="feature-icon" style="flex-shrink: 0;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p style="color: var(--text-light);">
+                                    General: info@bloodbank.com<br>
+                                    Support: support@bloodbank.com<br>
+                                    Emergency: emergency@bloodbank.com
+                                </p>
+                            </div>
+                        </div>
+                        <div class="feature-card" style="text-align: left; display: flex; align-items: flex-start; gap: 20px;">
+                            <div class="feature-icon" style="flex-shrink: 0;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3>Working Hours</h3>
+                                <p style="color: var(--text-light);">
+                                    Monday - Friday: 8:00 AM - 8:00 PM<br>
+                                    Saturday: 9:00 AM - 6:00 PM<br>
+                                    Sunday: 10:00 AM - 4:00 PM<br>
+                                    <strong>Emergency: 24/7</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section style="padding: 0 0 60px;">
+        <div class="container">
+            <div style="background-color: var(--bg-light); border-radius: 12px; overflow: hidden; height: 400px; display: flex; align-items: center; justify-content: center;">
+                <div style="text-align: center; color: var(--text-light);">
+                    <i class="fas fa-map-marked-alt" style="font-size: 48px; margin-bottom: 15px;"></i>
+                    <h3>Our Location</h3>
+                    <p>123 Main Street, Downtown, City</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand">
+                        <i class="fas fa-tint"></i>
+                        <span>BloodBank</span>
+                    </div>
+                    <p>Connecting blood donors with patients in need. Together, we can save lives and build a healthier community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate Blood</a></li>
+                        <li><a href="request.html">Request Blood</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="search.html">Find Donors</a></li>
+                        <li><a href="blood-banks.html">Blood Banks</a></li>
+                        <li><a href="hospitals.html">Hospitals</a></li>
+                        <li><a href="events.html">Donation Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@bloodbank.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Blood Bank Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
