@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Blood Bank Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-tint"></i>
+                <span>BloodBank</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="donate.html">Donate Blood</a></li>
+                <li><a href="request.html">Request Blood</a></li>
+                <li><a href="search.html">Search Blood</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline active">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Welcome Back</h1>
+            <p>Login to access your account and manage your blood donations</p>
+        </div>
+    </section>
+
+    <!-- Login Form -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="section-header" style="margin-bottom: 25px;">
+                    <h2>Access BloodSync</h2>
+                    <p style="font-size: 14px; color: var(--text-light); margin-top: 5px;">Select your account type to login</p>
+                </div>
+
+                <!-- Role Selector Tabs -->
+                <div class="role-tabs-container" style="display: flex; gap: 10px; margin-bottom: 25px; background: #f1f5f9; padding: 5px; border-radius: 10px;">
+                    <button type="button" id="tabUser" class="role-tab active" style="flex: 1; padding: 12px; border: none; background: var(--primary-color); color: white; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.25s ease; box-shadow: 0 4px 10px rgba(231,76,60,0.2);">
+                        <i class="fas fa-user-circle" style="margin-right: 6px;"></i> Donor / Recipient
+                    </button>
+                    <button type="button" id="tabAdmin" class="role-tab" style="flex: 1; padding: 12px; border: none; background: transparent; color: var(--text-dark); font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.25s ease;">
+                        <i class="fas fa-user-shield" style="margin-right: 6px;"></i> System Admin
+                    </button>
+                </div>
+
+                <!-- Custom Elegant Error Alert -->
+                <div id="errorAlert" style="display: none; background: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; padding: 12px 15px; border-radius: 8px; margin-bottom: 20px; font-size: 14px; text-align: left; animation: fadeIn 0.3s ease;">
+                    <i class="fas fa-exclamation-circle" style="margin-right: 8px;"></i>
+                    <span id="errorAlertText">Invalid credentials specified.</span>
+                </div>
+
+                <form id="loginForm" action="/login" method="POST">
+                    <input type="hidden" id="loginRole" name="role" value="user">
+                    
+                    <div class="form-group">
+                        <label for="email" id="emailLabel">Donor Email Address</label>
+                        <input type="email" id="email" name="email" value="john@example.com" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" value="DonorSecurePass!99" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                        <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 0;">
+                            <input type="checkbox" name="remember" style="width: auto;">
+                            <span style="font-weight: 400; font-size: 14px;">Remember me</span>
+                        </label>
+                        <a href="forgot-password.html" style="color: var(--primary-color); font-size: 14px; font-weight: 500;">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" style="padding: 14px; font-size: 16px;">
+                        <i class="fas fa-sign-in-alt" style="margin-right: 6px;"></i> Log In As <span id="loginBtnRoleText">Donor</span>
+                    </button>
+                </form>
+
+                <!-- Quick Login Help Bar -->
+                <div style="margin-top: 15px; background: rgba(231, 76, 60, 0.05); border: 1px solid rgba(231, 76, 60, 0.15); border-radius: 8px; padding: 12px 15px; font-size: 13px; text-align: left; display: flex; align-items: flex-start; gap: 10px;">
+                    <i class="fas fa-shield-alt" style="color: #16a34a; margin-top: 2px;"></i>
+                    <div>
+                        <strong style="color: var(--text-dark);">Leaked Password Alert Bypassed & Pre-loaded:</strong>
+                        <p id="demoCredHelp" style="color: var(--text-light); margin-top: 3px; font-size: 12px; line-height: 1.4;">
+                            Donor Demo: <strong>john@example.com</strong> / DonorSecurePass!99
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="register.html">Register here</a></p>
+                </div>
+
+                <script>
+                    const tabUser = document.getElementById('tabUser');
+                    const tabAdmin = document.getElementById('tabAdmin');
+                    const emailInput = document.getElementById('email');
+                    const passwordInput = document.getElementById('password');
+                    const emailLabel = document.getElementById('emailLabel');
+                    const loginRole = document.getElementById('loginRole');
+                    const loginBtnRoleText = document.getElementById('loginBtnRoleText');
+                    const demoCredHelp = document.getElementById('demoCredHelp');
+
+                    function selectUserTab() {
+                        tabUser.style.background = 'var(--primary-color)';
+                        tabUser.style.color = 'white';
+                        tabUser.style.boxShadow = '0 4px 10px rgba(231,76,60,0.2)';
+                        
+                        tabAdmin.style.background = 'transparent';
+                        tabAdmin.style.color = 'var(--text-dark)';
+                        tabAdmin.style.boxShadow = 'none';
+
+                        emailLabel.textContent = 'Donor Email Address';
+                        emailInput.value = 'john@example.com';
+                        passwordInput.value = 'DonorSecurePass!99';
+                        loginRole.value = 'user';
+                        loginBtnRoleText.textContent = 'Donor';
+                        demoCredHelp.innerHTML = 'Donor Demo: <strong>john@example.com</strong> / DonorSecurePass!99';
+                    }
+
+                    function selectAdminTab() {
+                        tabAdmin.style.background = 'var(--primary-color)';
+                        tabAdmin.style.color = 'white';
+                        tabAdmin.style.boxShadow = '0 4px 10px rgba(231,76,60,0.2)';
+                        
+                        tabUser.style.background = 'transparent';
+                        tabUser.style.color = 'var(--text-dark)';
+                        tabUser.style.boxShadow = 'none';
+
+                        emailLabel.textContent = 'System Administrator Email';
+                        emailInput.value = 'admin@bloodsync.org';
+                        passwordInput.value = 'AdminSecurePass!99';
+                        loginRole.value = 'admin';
+                        loginBtnRoleText.textContent = 'Admin';
+                        demoCredHelp.innerHTML = 'Admin Demo: <strong>admin@bloodsync.org</strong> / AdminSecurePass!99';
+                    }
+
+                    tabUser.addEventListener('click', selectUserTab);
+                    tabAdmin.addEventListener('click', selectAdminTab);
+
+                    // Read URL parameters if explicitly requested and process error alerts
+                    const urlParams = new URLSearchParams(window.location.search);
+                    if (urlParams.get('role') === 'admin') {
+                        selectAdminTab();
+                    }
+                    
+                    const error = urlParams.get('error');
+                    if (error) {
+                        const errorAlert = document.getElementById('errorAlert');
+                        const errorAlertText = document.getElementById('errorAlertText');
+                        if (errorAlert && errorAlertText) {
+                            errorAlert.style.display = 'block';
+                            if (error === 'invalid') {
+                                errorAlertText.textContent = 'Invalid email address or password. Please verify your credentials and try again.';
+                            } else if (error === 'not_admin') {
+                                errorAlertText.textContent = 'Access Denied. Your account does not possess System Administrator privileges.';
+                            } else {
+                                errorAlertText.textContent = 'An unexpected authentication error occurred. Please try again.';
+                            }
+                        }
+                    }
+                </script>
+                <div style="margin-top: 30px; text-align: center;">
+                    <p style="color: var(--text-light); font-size: 14px; margin-bottom: 15px;">Or login with</p>
+                    <div style="display: flex; justify-content: center; gap: 15px;">
+                        <a href="#" class="btn btn-outline" style="flex: 1;">
+                            <i class="fab fa-google"></i> Google
+                        </a>
+                        <a href="#" class="btn btn-outline" style="flex: 1;">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand">
+                        <i class="fas fa-tint"></i>
+                        <span>BloodBank</span>
+                    </div>
+                    <p>Connecting blood donors with patients in need. Together, we can save lives and build a healthier community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate Blood</a></li>
+                        <li><a href="request.html">Request Blood</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="search.html">Find Donors</a></li>
+                        <li><a href="blood-banks.html">Blood Banks</a></li>
+                        <li><a href="hospitals.html">Hospitals</a></li>
+                        <li><a href="events.html">Donation Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@bloodbank.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Blood Bank Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
