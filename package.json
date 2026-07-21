@@ -1,0 +1,18 @@
+{
+  "name": "bloodsync",
+  "version": "1.0.0",
+  "description": "Online Blood Bank Management System that connects donors with patients in need",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'No build step required'",
+    "start": "node server.js",
+    "lint": "echo 'No lint step required'"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.3"
+  }
+}
