@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Blood - Blood Bank Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-tint"></i>
+                <span>BloodBank</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="donate.html">Donate Blood</a></li>
+                <li><a href="request.html">Request Blood</a></li>
+                <li><a href="search.html" class="active">Search Blood</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Search Blood</h1>
+            <p>Find blood donors and blood banks near you</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <form id="searchForm" class="search-form">
+                    <div class="search-filters">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="bloodGroup">Blood Group</label>
+                            <select id="bloodGroup" name="bloodGroup">
+                                <option value="">All Blood Groups</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" placeholder="Enter city or area">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="type">Search Type</label>
+                            <select id="type" name="type">
+                                <option value="all">All</option>
+                                <option value="donors">Donors</option>
+                                <option value="banks">Blood Banks</option>
+                                <option value="hospitals">Hospitals</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="height: fit-content;">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3>Search Results</h3>
+                    <p style="color: var(--text-light);">Showing <strong>6</strong> results</p>
+                </div>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="blood-type-badge">A+</div>
+                            <div class="result-info">
+                                <h4>City Hospital Blood Bank</h4>
+                                <p>Blood Bank</p>
+                            </div>
+                        </div>
+                        <div class="result-details">
+                            <p><i class="fas fa-tint"></i> <strong>25 units</strong> available</p>
+                            <p><i class="fas fa-map-marker-alt"></i> 123 Main St, Downtown</p>
+                            <p><i class="fas fa-phone"></i> +1 234 567 8901</p>
+                            <p><i class="fas fa-clock"></i> Open 24/7</p>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="requestBlood('City Hospital Blood Bank')">Request Blood</button>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="blood-type-badge">O+</div>
+                            <div class="result-info">
+                                <h4>John Smith</h4>
+                                <p>Blood Donor</p>
+                            </div>
+                        </div>
+                        <div class="result-details">
+                            <p><i class="fas fa-user"></i> Age: 28 years</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Westside, 2.5 km away</p>
+                            <p><i class="fas fa-phone"></i> +1 234 567 8902</p>
+                            <p><i class="fas fa-calendar-check"></i> Last donated: 4 months ago</p>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="contactDonor('John Smith')">Contact Donor</button>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="blood-type-badge">B+</div>
+                            <div class="result-info">
+                                <h4>Life Care Center</h4>
+                                <p>Hospital</p>
+                            </div>
+                        </div>
+                        <div class="result-details">
+                            <p><i class="fas fa-tint"></i> <strong>18 units</strong> available</p>
+                            <p><i class="fas fa-map-marker-alt"></i> 456 Oak Ave, Eastside</p>
+                            <p><i class="fas fa-phone"></i> +1 234 567 8903</p>
+                            <p><i class="fas fa-clock"></i> Open 8 AM - 8 PM</p>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="requestBlood('Life Care Center')">Request Blood</button>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="blood-type-badge">AB+</div>
+                            <div class="result-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Blood Donor</p>
+                            </div>
+                        </div>
+                        <div class="result-details">
+                            <p><i class="fas fa-user"></i> Age: 32 years</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Northside, 5.2 km away</p>
+                            <p><i class="fas fa-phone"></i> +1 234 567 8904</p>
+                            <p><i class="fas fa-calendar-check"></i> Last donated: 6 months ago</p>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="contactDonor('Sarah Johnson')">Contact Donor</button>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="blood-type-badge">O-</div>
+                            <div class="result-info">
+                                <h4>Red Cross Blood Bank</h4>
+                                <p>Blood Bank</p>
+                            </div>
+                        </div>
+                        <div class="result-details">
+                            <p><i class="fas fa-tint"></i> <strong>12 units</strong> available</p>
+                            <p><i class="fas fa-map-marker-alt"></i> 789 Elm St, City Center</p>
+                            <p><i class="fas fa-phone"></i> +1 234 567 8905</p>
+                            <p><i class="fas fa-clock"></i> Open 24/7</p>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="requestBlood('Red Cross Blood Bank')">Request Blood</button>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="blood-type-badge">A-</div>
+                            <div class="result-info">
+                                <h4>Michael Brown</h4>
+                                <p>Blood Donor</p>
+                            </div>
+                        </div>
+                        <div class="result-details">
+                            <p><i class="fas fa-user"></i> Age: 35 years</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Southside, 3.8 km away</p>
+                            <p><i class="fas fa-phone"></i> +1 234 567 8906</p>
+                            <p><i class="fas fa-calendar-check"></i> Last donated: 3 months ago</p>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="contactDonor('Michael Brown')">Contact Donor</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Compatibility Section -->
+    <section class="blood-types" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Blood Type Compatibility</h2>
+                <p>Understand which blood types you can donate to and receive from</p>
+            </div>
+            <div class="blood-grid">
+                <div class="blood-card">
+                    <div class="blood-icon">A+</div>
+                    <p><strong>Donate to:</strong> A+, AB+</p>
+                    <p><strong>Receive from:</strong> A+, A-, O+, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">A-</div>
+                    <p><strong>Donate to:</strong> A+, A-, AB+, AB-</p>
+                    <p><strong>Receive from:</strong> A-, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">B+</div>
+                    <p><strong>Donate to:</strong> B+, AB+</p>
+                    <p><strong>Receive from:</strong> B+, B-, O+, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">B-</div>
+                    <p><strong>Donate to:</strong> B+, B-, AB+, AB-</p>
+                    <p><strong>Receive from:</strong> B-, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">AB+</div>
+                    <p><strong>Donate to:</strong> AB+ only</p>
+                    <p><strong>Receive from:</strong> All types</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">AB-</div>
+                    <p><strong>Donate to:</strong> AB+, AB-</p>
+                    <p><strong>Receive from:</strong> A-, B-, AB-, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">O+</div>
+                    <p><strong>Donate to:</strong> A+, B+, AB+, O+</p>
+                    <p><strong>Receive from:</strong> O+, O-</p>
+                </div>
+                <div class="blood-card">
+                    <div class="blood-icon">O-</div>
+                    <p><strong>Donate to:</strong> All types</p>
+                    <p><strong>Receive from:</strong> O- only</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand">
+                        <i class="fas fa-tint"></i>
+                        <span>BloodBank</span>
+                    </div>
+                    <p>Connecting blood donors with patients in need. Together, we can save lives and build a healthier community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="donate.html">Donate Blood</a></li>
+                        <li><a href="request.html">Request Blood</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="search.html">Find Donors</a></li>
+                        <li><a href="blood-banks.html">Blood Banks</a></li>
+                        <li><a href="hospitals.html">Hospitals</a></li>
+                        <li><a href="events.html">Donation Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@bloodbank.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Blood Bank Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Search form handler
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            performSearch();
+        });
+
+        function contactDonor(donorName) {
+            alert(`Contact request sent to ${donorName}. They will be notified and may contact you shortly.`);
+        }
+    </script>
+</body>
+</html>
